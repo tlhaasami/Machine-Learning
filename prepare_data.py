@@ -9,14 +9,10 @@ if not os.path.exists(data_path):
 
 df = pd.read_csv(data_path)
 
-# Separate features (first 8 columns)
-# The dataset has exactly 10 columns: 8 features and 2 targets (Heating_Load, Cooling_Load)
-features = df.iloc[:, :8]
-
-# Save to CSV file
-features.to_csv("cleaned.csv", index=False)
+# Save the entire labeled dataset (all columns) to cleaned.csv
+df.to_csv("cleaned.csv", index=False)
 
 print("Data preparation complete:")
-print(f"Features saved to: cleaned.csv (Shape: {features.shape})")
-print("\nFeature Columns:")
-print(list(features.columns))
+print(f"Full labeled dataset saved to: cleaned.csv (Shape: {df.shape})")
+print("\nColumns:")
+print(list(df.columns))

@@ -11,10 +11,10 @@ import os
 
 def train():
     # 1. Load the dataset
-    data_path = "DataSet/energy_efficiency_data.csv"
+    data_path = "cleaned.csv"
 
     if not os.path.exists(data_path):
-        print(f"Error: {data_path} not found.")
+        print(f"Error: {data_path} not found. Run prepare_data.py first.")
         return
 
     df = pd.read_csv(data_path)
@@ -23,7 +23,7 @@ def train():
     X = df.iloc[:, :8]
     y = df.iloc[:, 8:]
 
-    print(f"Loaded dataset shape: {df.shape}")
+    print(f"Loaded cleaned.csv shape: {df.shape}")
     print(f"Features shape: {X.shape}")
     print(f"Targets shape: {y.shape}")
 
